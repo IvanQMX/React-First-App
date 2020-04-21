@@ -2,9 +2,10 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
 import "./App.css";
+import Gif from "./Gif";
 
 let GIFS = [
-	"https://media.giphy.com/media/ZU7GcabK4mwF2/giphy.gif",
+	"https://media.giphy.com/media/Uop3kZG2IE7XTIkz88/giphy.gif",
 	"https://media.giphy.com/media/UtNny4iBxn2UM/giphy.gif",
 	"https://media.giphy.com/media/Gzwqh47290mzu/giphy.gif",
 	"https://media.giphy.com/media/fuQ8oYKddfxkHlG2i4/giphy.gif",
@@ -19,9 +20,9 @@ class App extends React.Component {
 			<div className="App bg-secondary text-center text-white">
 				<h1>Hola Mundo</h1>
 				<FontAwesomeIcon icon={faCode} size="3x" />
-				<div>
+				<div className="row justify-content-around">
 					{GIFS.map((gif, index) => {
-						return <img key={index} src={gif} />;
+						return <Gif key={index} url={gif}/>;
 					})}
 				</div>
 			</div>
