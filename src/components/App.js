@@ -15,14 +15,38 @@ let GIFS = [
 ];
 
 class App extends React.Component {
+
+    addNewLink(event) {
+        event.preventDefault();
+        console.log(event.target[0].value);
+    }
+
 	render() {
 		return (
 			<div className="App bg-secondary text-center text-white">
 				<h1>Hola Mundo</h1>
 				<FontAwesomeIcon icon={faCode} size="3x" />
+				<form onSubmit={this.addNewLink}>
+					<div className="input-group my-3 px-3">
+						<div className="input-group-prepend">
+							<span className="input-group-text">
+								Link del Gif
+							</span>
+						</div>
+						<input type="text" className="form-control" />
+						<div className="input-group-append">
+							<button
+								className="btn btn-outline-light"
+								type="submit"
+							>
+								Button
+							</button>
+						</div>
+					</div>
+				</form>
 				<div className="row justify-content-around">
 					{GIFS.map((gif, index) => {
-						return <Gif key={index} url={gif}/>;
+						return <Gif key={index} url={gif} />;
 					})}
 				</div>
 			</div>
