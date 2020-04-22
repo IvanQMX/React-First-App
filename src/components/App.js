@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
 import "./App.css";
 import Gif from "./Gif";
+import Button from "./Button";
 
 let GIFS = [
 	"https://media.giphy.com/media/Uop3kZG2IE7XTIkz88/giphy.gif",
@@ -37,25 +38,8 @@ class App extends React.Component {
 		return (
 			<div className="App bg-secondary text-center text-white">
 				<h1>Hola Mundo</h1>
+                <Button submit={this.addNewLink}/>
 				<FontAwesomeIcon icon={faCode} size="3x" />
-				<form onSubmit={this.addNewLink}>
-					<div className="input-group my-3 px-3">
-						<div className="input-group-prepend">
-							<span className="input-group-text">
-								Link del Gif
-							</span>
-						</div>
-						<input type="text" className="form-control" />
-						<div className="input-group-append">
-							<button
-								className="btn btn-outline-light"
-								type="submit"
-							>
-								Button
-							</button>
-						</div>
-					</div>
-				</form>
 				<div className="row justify-content-around">
 					{this.state.gifs.map((gif, index) => {
 						return <Gif key={index} url={gif} />;
