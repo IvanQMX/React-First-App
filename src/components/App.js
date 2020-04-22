@@ -15,10 +15,22 @@ let GIFS = [
 ];
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            gifs: GIFS
+        }
+        this.addNewLink = this.addNewLink.bind(this);
+    }
 
     addNewLink(event) {
         event.preventDefault();
-        console.log(event.target[0].value);
+        const newGif = event.target[0].value;
+        this.setState(prevState => {
+            return {
+                gifs: [...prevState.gifs, newGif]
+            }
+        })
     }
 
 	render() {
@@ -45,7 +57,7 @@ class App extends React.Component {
 					</div>
 				</form>
 				<div className="row justify-content-around">
-					{GIFS.map((gif, index) => {
+					{this.state.gifs.map((gif, index) => {
 						return <Gif key={index} url={gif} />;
 					})}
 				</div>
