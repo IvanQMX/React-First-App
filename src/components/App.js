@@ -24,9 +24,7 @@ class App extends React.Component {
         this.addNewLink = this.addNewLink.bind(this);
     }
 
-    addNewLink(event) {
-        event.preventDefault();
-        const newGif = event.target[0].value;
+    addNewLink(newGif) {
         this.setState(prevState => {
             return {
                 gifs: [...prevState.gifs, newGif]
